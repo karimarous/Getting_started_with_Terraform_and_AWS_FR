@@ -1,26 +1,20 @@
-# 1. Use count and count.index 
+# 1. Test terraform functions
 
-1.1 Go to main.tf and replace to block resource aws_instance with the following code
+1.1 Run the following command
 ```
-resource "aws_instance" "instance" {
-  count = 2
-  ami           = var.ami
-  instance_type = var.instance_type
-  tags = {
-    Name = "${var.instance_name}-${local.env}-${count.index + 1}"
-  }
-}
+terraform console
 ```
 
-1.2 Go to outputs.tf and replace the block output instance_id with the following code
+1.2 Run the functions 
 ```
-output "instance_id" {
-  value = aws_instance.instance.*.id
-}
+upper("karim")
+replace("hello world", "world", "Terraform")
+join("-", ["dev", "staging", "prod"])
+min(10, 5, 20)
+max(1, 7, 3) 
+abs(-42)
+timestamp()
+length(["a", "b", "c"])
+lookup({a = 1, b = 2}, "b", 0)
+merge({a = 1}, {b = 2})
 ```
-
-1.2 Run th following command
-```
-terraform apply -var-file="dev.tfvars"
-```
-Type "yes"

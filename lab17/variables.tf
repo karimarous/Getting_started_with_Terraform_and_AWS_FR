@@ -1,3 +1,15 @@
+variable "vpc_name" {
+  type    = string
+}
+
+variable "vpc_cidr" {
+  type    = string
+}
+
+variable "public_subnets" {
+  type = map
+}
+
 variable "sg_name" {
   type    = string
 }
@@ -22,31 +34,4 @@ variable "sg_egress_rules" {
            protocol    = string
            cidr_blocks = list(string)
          }))
-}
-
-variable "ami_owner" {
-  type    = string
-}
-
-variable "ami_name" {
-  type    = string
-}
-
-variable "ami_virtualization_type" {
-  type    = string
-}
-variable "instance_type" {
-  type    = string
-}
-
-variable "instance_name" {
-  type    = string
-}
-
-variable "key_name" {
-  type    = string
-}
-
-variable "private_key_path" {
-  type    = string
 }

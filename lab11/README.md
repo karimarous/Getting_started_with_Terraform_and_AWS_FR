@@ -1,69 +1,21 @@
-# 1. Test variable condition
+# 1. Deploy nginx server
 
-1.1 Replace the variable instance_name bloc with the following code
-```
-variable "instance_name" {
-  type = string
-  default = "karim-instance"
-  validation {
-    condition = length(var.instance_name) > 5
-    error_message = "The instance name must more than 5 letters."
-  }
-}
-```
+1.1 Go to AWS and create a key pair with your name. In my case, I have created a key pair called "karim"
 
-1.2 Run the following command
+1.2 Download "karim.pem" key pair and put in the root directory of the project
+
+1.3 Replace the value of the tag Name of the resource aws_security_group to "${var.sg_name}-${local.env}"
+
+1.4 Replace the value of the tag Name of the resource aws_instance to "${var.instance_name}-${local.env}"
+
+1.5 Run the following command
 ```
 terraform apply -var-file="dev.tfvars"
 ```
-Type "yes"
+1.6 Type "yes"
 
-# 2. Migrate all variables default values to dev.tfvars
-
-2.1 Update dev.tfvars with the following code
+1.7 Run the following command to delete the resources
 ```
-security_group_name = "karim-security-group"
-security_group_description = "karim security group"
-instance_type = "t2.micro"
-ami = "ami-0ff71843f814379b3"
-instance_name = "karim-instance"
+terraform destroy -var-file="dev.tfvars"
 ```
-
-2.2 Override variables.tf with the following code
-
-Replace the variable instance_name bloc with the following code
-```
-variable "security_group_name" {
-  type = string
-}
-
-variable "security_group_description" {
-  type = string
-}
-
-variable "instance_type" {
-  type = string
-}
-
-variable "ami" {
-  type = string
-}
-
-variable "instance_name" {
-  type = string
-  validation {
-    condition = length(var.instance_name) > 5
-    error_message = "The instance name must more than 5 letters."
-  }
-}
-
-variable "env" {
-  type = string
-}
-```
-
-2.3 Run the following command
-
-```
-terraform apply -var-file="dev.tfvars"
-```
+1.8 Type "yes"

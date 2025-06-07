@@ -1,107 +1,74 @@
-# 1. Create a Security Group using Dynamic block
+# 1. Provision an AWS VPC and 2 public subnets with for_each
 
-1.1 Go to main.tf and add the following code
+1.1 Go to main.tf and override all the code with the following code
 ```
-resource "aws_security_group" "security_group" {
-  name        = "${var.sg_name}-${local.env}"
-  description = var.sg_description
-  vpc_id      = aws_vpc.vpc.id
-
-  dynamic "ingress" {
-    for_each = var.sg_ingress_rules
-    content {
-      from_port   = ingress.value.from_port
-      to_port     = ingress.value.to_port
-      protocol    = ingress.value.protocol
-      cidr_blocks = ingress.value.cidr_blocks
-    }
-  }
-  dynamic "egress" {
-    for_each = var.sg_egress_rules
-    content {
-      from_port   = egress.value.from_port
-      to_port     = egress.value.to_port
-      protocol    = egress.value.protocol
-      cidr_blocks = egress.value.cidr_blocks
-    }
-  }
+resource "aws_vpc" "vpc" {
+  cidr_block           = var.vpc_cidr
+  enable_dns_support   = true
+  enable_dns_hostnames = true
   tags = {
-    Name = "${var.sg_name}-${local.env}"
+    Name = "${var.vpc_name}-${local.env}"
+  }
+}
+
+resource "aws_subnet" "subnet" {
+  for_each   = var.public_subnets
+  vpc_id     = aws_vpc.vpc.id
+  cidr_block = each.value.cidr
+  map_public_ip_on_launch = true
+  availability_zone = each.value.az
+  tags = {
+    Name = "${each.value.name}-${local.env}"
   }
 }
 ```
 
-1.2 Go to variables.tf and add the following code
+1.2 Go to variables.tf and override all the code with the following code
 ```
-variable "sg_name" {
-type    = string
-}
+variable "vpc_name" {
+    type    = string
+  }
 
-variable "sg_description" {
-type    = string
-}
+  variable "vpc_cidr" {
+    type    = string
+  }
 
-variable "sg_ingress_rules" {
-type = list(object({
-          from_port   = number
-          to_port     = number
-          protocol    = string
-          cidr_blocks = list(string)
-        }))
-}
-
-variable "sg_egress_rules" {
-type = list(object({
-          from_port   = number
-          to_port     = number
-          protocol    = string
-          cidr_blocks = list(string)
-        }))
-}
+  variable "public_subnets" {
+    type = map
+  }
 ```
 
-1.3 Go to dev.tfvars and add the following code
+1.3 Go to dev.tfvars and override all the code with the following code
 ```
-sg_name = "karim-sg"
-sg_description = "Security group with dynamic rules"
-sg_ingress_rules = [
-    {
-      from_port   = 22
-      to_port     = 22
-      protocol    = "tcp"
-      cidr_blocks = ["0.0.0.0/0"]
-    },
-    {
-      from_port   = 80
-      to_port     = 80
-      protocol    = "tcp"
-      cidr_blocks = ["0.0.0.0/0"]
-    },
-    {
-      from_port   = 443
-      to_port     = 443
-      protocol    = "tcp"
-      cidr_blocks = ["0.0.0.0/0"]
-    }
-  ]
-sg_egress_rules= [
-    {
-      from_port   = 0
-      to_port     = 0
-      protocol    = "-1"
-      cidr_blocks = ["0.0.0.0/0"]
-    }
-]
+vpc_name = "karim-vpc"
+vpc_cidr = "10.0.0.0/16"
+public_subnets = {
+  subnet-1 = {
+    name = "subnet-1"
+    cidr = "10.0.0.0/24"
+    az   = "eu-west-3a"
+  },
+  subnet-2 ={
+    name = "subnet-2"
+    cidr = "10.0.1.0/24"
+    az   = "eu-west-3b"
+  } 
+}
 ```
-Replace "karim" with "your_name"
 
-1.4 Run th following command
+1.4 Go to outputs.tf and override it with the following code
+```
+output "vpc_id" {
+  value = aws_vpc.main.id
+}
+
+output "public_subnet_ids" {
+  value = [for subnet in aws_subnet.public : subnet.id]
+}
+```
+
+1.5 Run th following command
 ```
 terraform apply -var-file="dev.tfvars"
 ```
 Type "yes"
-
-1.5 Run the following command
-```
-terraform destroy -var-file="dev.tfvars"
-```

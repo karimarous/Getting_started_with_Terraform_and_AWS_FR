@@ -1,60 +1,107 @@
-# 1. Terraform format
+# 1. Create a Security Group using Dynamic block
 
-1.1 Go to main.tf and replace the bloc data aws_ami with the following code
+1.1 Go to main.tf and add the following code
 ```
-data "aws_ami" "ubuntu" {
-  most_recent = true
-      owners      = [var.ami_owner] 
+resource "aws_security_group" "security_group" {
+  name        = "${var.sg_name}-${local.env}"
+  description = var.sg_description
+  vpc_id      = aws_vpc.vpc.id
 
-  filter {
-    name   = "name"
-    values = [var.ami_name]
+  dynamic "ingress" {
+    for_each = var.sg_ingress_rules
+    content {
+      from_port   = ingress.value.from_port
+      to_port     = ingress.value.to_port
+      protocol    = ingress.value.protocol
+      cidr_blocks = ingress.value.cidr_blocks
+    }
   }
-  filter {
-    name   = "virtualization-type"
-    values = [var.ami_virtualization_type]
+  dynamic "egress" {
+    for_each = var.sg_egress_rules
+    content {
+      from_port   = egress.value.from_port
+      to_port     = egress.value.to_port
+      protocol    = egress.value.protocol
+      cidr_blocks = egress.value.cidr_blocks
+    }
   }
-}
-```
-
-1.2 Run the following command
-```
-terraform fmt
-```
-# 2. Terraform validate
-2.1 Go to main.tf and replace the block resource aws_instance with the following code
-```
-resource "aws_instance" "ec2" {
-  ami                    = data.aws_ami.ubuntu.id
-  instance_type          = var.instance_type
-  subnet_id              = values(aws_subnet.subnet)[0].id
-  vpc_security_group_ids = [aws_security_group.security_group.id]
-  uqtsyg
   tags = {
-    Name = "${var.instance_name}-${local.env}"
+    Name = "${var.sg_name}-${local.env}"
   }
 }
 ```
 
-2.2 Run th following command
+1.2 Go to variables.tf and add the following code
 ```
-terraform validate
-```
+variable "sg_name" {
+type    = string
+}
 
-2.3 Go to main.tf and replace the block resource aws_instance with the following code
-```
-resource "aws_instance" "ec2" {
-  ami                    = data.aws_ami.ubuntu.id
-  instance_type          = var.instance_type
-  subnet_id              = values(aws_subnet.subnet)[0].id
-  vpc_security_group_ids = [aws_security_group.security_group.id]
-  tags = {
-    Name = "${var.instance_name}-${local.env}"
-  }
+variable "sg_description" {
+type    = string
+}
+
+variable "sg_ingress_rules" {
+type = list(object({
+          from_port   = number
+          to_port     = number
+          protocol    = string
+          cidr_blocks = list(string)
+        }))
+}
+
+variable "sg_egress_rules" {
+type = list(object({
+          from_port   = number
+          to_port     = number
+          protocol    = string
+          cidr_blocks = list(string)
+        }))
 }
 ```
 
-2.4 Run th following command
+1.3 Go to dev.tfvars and add the following code
 ```
-terraform validate
+sg_name = "karim-sg"
+sg_description = "Security group with dynamic rules"
+sg_ingress_rules = [
+    {
+      from_port   = 22
+      to_port     = 22
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    },
+    {
+      from_port   = 80
+      to_port     = 80
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    },
+    {
+      from_port   = 443
+      to_port     = 443
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+  ]
+sg_egress_rules= [
+    {
+      from_port   = 0
+      to_port     = 0
+      protocol    = "-1"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+]
+```
+Replace "karim" with "your_name"
+
+1.4 Run th following command
+```
+terraform apply -var-file="dev.tfvars"
+```
+Type "yes"
+
+1.5 Run the following command
+```
+terraform destroy -var-file="dev.tfvars"
 ```
