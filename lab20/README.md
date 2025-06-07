@@ -220,7 +220,7 @@ ami_virtualization_type = "hvm"
 instance_type = "t3.micro"
 instance_name = "karim-ec2"
 ```
-1.9 Delete outputs.tf
+1.9 Delete outputs.tf that exist in the root directory
 
 1.10 Run the following command initalize the initialize the module
 ```
