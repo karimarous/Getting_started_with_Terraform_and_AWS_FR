@@ -23,7 +23,7 @@ resource "aws_subnet" "subnet" {
 }
 ```
 
-1.2 Go to variables.tf and override all the code with the following code
+1.2 Replace the code that exist in variables.tf with the following code
 ```
 variable "vpc_name" {
     type    = string
@@ -38,7 +38,7 @@ variable "vpc_name" {
   }
 ```
 
-1.3 Go to dev.tfvars and override all the code with the following code
+1.3 Replace the code that exist in dev.tfvars with the following code
 ```
 vpc_name = "karim-vpc"
 vpc_cidr = "10.0.0.0/16"
@@ -56,7 +56,7 @@ public_subnets = {
 }
 ```
 
-1.4 Go to outputs.tf and override it with the following code
+1.4 Replace the code that exist in outputs.tf with the following code
 ```
 output "vpc_id" {
   value = aws_vpc.main.id
@@ -71,4 +71,10 @@ output "public_subnet_ids" {
 ```
 terraform apply -var-file="dev.tfvars"
 ```
-Type "yes"
+1.6 Type "yes"
+
+1.7 Run th following command to destroy the resources
+```
+terraform destroy -var-file="dev.tfvars"
+```
+1.8 Type "yes"
