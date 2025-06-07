@@ -3,7 +3,7 @@
 1.1 Replace the code that exist in locals.tf with the following code
 ```
 locals {
-   env = terraform.workspace
+  env = terraform.workspace
 }
 ```
 1.2 Run the following commands
