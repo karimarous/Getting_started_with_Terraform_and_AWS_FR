@@ -9,23 +9,13 @@ variable "env" {
 
 # 2. Update the main.tf with the variable env
 
-Copy the following code and update variables.tf
+2.1 Copy the following code and add it in main.tf as a tag to the resource aws_security_group 
 ```
-resource "aws_security_group" "security_group" {
-  name        = "${var.security_group_name}-${var.env}"
-  description = "${var.security_group_description}-${var.env}"
-  tags = {
-    Name = "${var.security_group_name}-${var.env}"
-  }
-}
-
-resource "aws_instance" "instance" {
-  ami           = var.ami
-  instance_type = var.instance_type
-  tags = {
-    Name = "${var.instance_name}-${var.env}"
-  }
-}
+env = var.env
+```
+2.2 Copy the following code and add it in main.tf as a tag to the resource aws_instance 
+```
+env = var.env
 ```
 # 3. Pass the value of the variable using cli
 Run the following command
