@@ -15,7 +15,6 @@ variable "instance_name" {
 ```
 terraform apply -var-file="dev.tfvars"
 ```
-Type "yes"
 
 # 1. Test variable condition min
 1.1 Replace the variable instance_name bloc with the following code
@@ -32,5 +31,11 @@ variable "instance_name" {
 1.2 Run the following command
 ```
 terraform apply -var-file="dev.tfvars"
+```
+Type "yes"
+
+1.3 Run the following command
+```
+terraform destroy -var-file="dev.tfvars"
 ```
 Type "yes"
