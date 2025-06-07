@@ -177,6 +177,10 @@ terraform apply -var-file="dev.tfvars"
 ```
 1.8 Type "yes"
 
+1.9 Wait 10 min then go to AWS EC2 console and copy the public IP of the created instance and paste it into a new Chrome tab
+
+You will find a "Welcome to nginx!" page
+
 1.9 Run the following command to delete the resources
 ```
 terraform destroy -var-file="dev.tfvars"
