@@ -93,15 +93,17 @@ sg_egress_rules= [
     }
 ]
 ```
-Replace "karim" with "your_name"
+
+Note: Replace "karim" with "your_name"
 
 1.4 Run th following command
 ```
 terraform apply -var-file="dev.tfvars"
 ```
-Type "yes"
+1.5 Type "yes"
 
-1.5 Run the following command
+1.6 Run the following command to destroy the resources
 ```
 terraform destroy -var-file="dev.tfvars"
 ```
+1.7 Type "yes"
