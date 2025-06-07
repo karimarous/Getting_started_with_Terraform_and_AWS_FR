@@ -1,18 +1,13 @@
 # 1. Terraform format
 
-1.1 Go to main.tf and replace the bloc data aws_ami with the following code
+1.1 Open main.tf and replace the resource aws_vpc with the following code
 ```
-data "aws_ami" "ubuntu" {
-  most_recent = true
-      owners      = [var.ami_owner] 
-
-  filter {
-    name   = "name"
-    values = [var.ami_name]
-  }
-  filter {
-    name   = "virtualization-type"
-    values = [var.ami_virtualization_type]
+resource "aws_vpc" "vpc" {
+  cidr_block           = var.vpc_cidr
+        enable_dns_support   = true
+  enable_dns_hostnames = true
+  tags = {
+    Name = "${var.vpc_name}-${local.env}"
   }
 }
 ```
@@ -24,16 +19,18 @@ terraform fmt
 # 2. Terraform validate
 2.1 Go to main.tf and replace the block resource aws_instance with the following code
 ```
-resource "aws_instance" "ec2" {
-  ami                    = data.aws_ami.ubuntu.id
-  instance_type          = var.instance_type
-  subnet_id              = values(aws_subnet.subnet)[0].id
-  vpc_security_group_ids = [aws_security_group.security_group.id]
-  uqtsyg
+resource "aws_subnet" "public" {
+  for_each                = var.public_subnets
+  vpc_id                  = aws_vpc.vpc.id
+  cidr_block              = each.value.cidr
+  map_public_ip_on_launch = true
+  availability_zone       = each.value.az
+  fhjghjk
   tags = {
-    Name = "${var.instance_name}-${local.env}"
+    Name = "${each.value.name}-${local.env}"
   }
 }
+
 ```
 
 2.2 Run th following command
