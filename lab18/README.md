@@ -40,18 +40,19 @@ terraform validate
 
 2.3 Go to main.tf and replace the block resource aws_instance with the following code
 ```
-resource "aws_instance" "ec2" {
-  ami                    = data.aws_ami.ubuntu.id
-  instance_type          = var.instance_type
-  subnet_id              = values(aws_subnet.subnet)[0].id
-  vpc_security_group_ids = [aws_security_group.security_group.id]
+resource "aws_subnet" "public" {
+  for_each                = var.public_subnets
+  vpc_id                  = aws_vpc.vpc.id
+  cidr_block              = each.value.cidr
+  map_public_ip_on_launch = true
+  availability_zone       = each.value.az
   tags = {
-    Name = "${var.instance_name}-${local.env}"
+    Name = "${each.value.name}-${local.env}"
   }
 }
 ```
 
-2.4 Run th following command
+2.4 Run the following command
 ```
 terraform validate
 ```
