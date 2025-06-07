@@ -6,6 +6,7 @@
 terraform apply
 ```
 Type "yes"
+
 1.3 Go to AWS EC2 console and verify the name of the instance
 
 # 2. Modify the resource in the terraform configuration file
