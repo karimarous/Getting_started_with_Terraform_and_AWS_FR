@@ -5,7 +5,7 @@
 variable "instance_name" {
   type = string
   validation {
-    condition = length(var.instance_name) =< 5
+    condition = length(var.instance_name) <= 5
     error_message = "The instance name must have at max 5 characters."
   }
 }
