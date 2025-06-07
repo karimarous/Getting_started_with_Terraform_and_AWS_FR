@@ -76,7 +76,7 @@ resource "aws_instance" "instance" {
 }
 ```
 
-1.4 Go to variables.tf and override it with the following code
+1.4 Replace the code that exist in variables.tf with the following code
 ```
 variable "sg_name" {
   type    = string
@@ -131,7 +131,7 @@ variable "private_key_path" {
 }
 ```
 
-1.5 Go to dev.tfvars and override it with the following code
+1.5 Replace the code that exist in dev.tfvars.tf with the following code
 ```
 sg_name = "karim-sg"
 sg_description = "Security group with dynamic rules"
