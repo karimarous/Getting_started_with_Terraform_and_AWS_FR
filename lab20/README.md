@@ -117,7 +117,7 @@ output "instance_id" {
   value       = aws_instance.instance.id
 }
 ```
-1.6 In the root project, go to main.tf and override it with the following code
+1.6 In the root project, go to main.tf and replace the existing content with the following code
 ```
 module "ec2" {
   source = "./modules/ec2"
@@ -134,7 +134,7 @@ module "ec2" {
 }
 ```
 
-1.7 In the root project override variables.tf with the following code
+1.7 In the root project, go to variables.tf and replace the existing content with the following code
 ```
 variable "sg_name" {
   type    = string
@@ -182,7 +182,7 @@ variable "instance_name" {
 }
 ```
 
-1.8 In the root project rename the file "dev.tfvars" to "terraform.tfvars" and override it with the following code
+1.8 In the root project rename the file "dev.tfvars" to "terraform.tfvars" and replace the existing content with the following code
 ```
 sg_name = "karim-sg"
 sg_description = "Security group with dynamic rules"
@@ -221,15 +221,16 @@ instance_type = "t3.micro"
 instance_name = "karim-ec2"
 ```
 
-1.9 Run the following commands
+1.9 Run the following command initalize the initialize the module
 ```
 terraform init 
-terraform apply 
 ```
-Type "yes"
+1.9 Run the following command to provision the resources
+```
+terraform apply -auto-approve
+```
 
 1.10 Run the following commands
 ```
-terraform destroy
+terraform destroy -auto-approve
 ```
-Type "yes"
