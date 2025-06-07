@@ -29,13 +29,13 @@ variable "vpc_name" {
     type    = string
   }
 
-  variable "vpc_cidr" {
-    type    = string
-  }
+variable "vpc_cidr" {
+  type    = string
+}
 
-  variable "public_subnets" {
-    type = map
-  }
+variable "public_subnets" {
+  type = map
+}
 ```
 
 1.3 Replace the code that exist in dev.tfvars with the following code
