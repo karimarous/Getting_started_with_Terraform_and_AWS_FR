@@ -12,7 +12,7 @@ Type "yes"
 # 2. Modify the resource in the terraform configuration file
 2.1. Replace the Name value of the resource aws_instance in main.tf with "karim-instance1"
 
-2.2 Replace "karim" with your name
+Note: Replace "karim" with your name
 
 2.3. Run the following command
 ```
