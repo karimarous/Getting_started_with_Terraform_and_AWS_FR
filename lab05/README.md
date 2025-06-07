@@ -1,8 +1,8 @@
 # 1. Create all variables
 
-1.1. Create a file named variables.tf
+1.1 Create a file named variables.tf
 
-1.2. Copy the following code into variables.tf
+1.2 Copy the following code into variables.tf
 ```
 variable "security_group_name" {
   type = string
@@ -30,11 +30,11 @@ variable "instance_name" {
 }
 ```
 
-1.3. Replace "karim" by "your_name" in variables.tf 
+1.3 Replace "karim" by "your_name" in variables.tf 
 
 # 2. Update your code with the variables
 
-2.1. Copy the following code into main.tf
+2.1 Copy the following code into main.tf
 
 ```
 resource "aws_security_group" "security_group" {

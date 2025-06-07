@@ -1,8 +1,8 @@
 # 1. Provision an EC2 instance
 
-1.1. Create a file named main.tf
+1.1 Create a file named main.tf
 
-1.2. Copy the following code into main.tf
+1.2 Copy the following code into main.tf
 ```
 resource "aws_instance" "instance" {
    ami           = "ami-0ff71843f814379b3"
@@ -27,10 +27,10 @@ terraform plan
 terraform apply
 ```
 
-Type "yes"
+1.3.3 Type "yes"
 
 # 2. Provision a Security Group
-2.1. Update main.tf with the following code
+2.1 Update main.tf with the following code
 
 ```
 resource "aws_security_group" "security_group" {
