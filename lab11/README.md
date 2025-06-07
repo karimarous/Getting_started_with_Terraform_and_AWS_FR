@@ -4,10 +4,14 @@
 
 1.2 Download "karim.pem" key pair and put in the root directory of the project
 
-1.3 Replace the value of the tag Name of the resource aws_security_group to "${var.sg_name}-${local.env}"
-
-1.4 Replace the value of the tag Name of the resource aws_instance to "${var.instance_name}-${local.env}"
-
+1.3 Replace the value of the tag Name of the resource aws_security_group with the following code
+```
+"${var.sg_name}-${local.env}"
+```
+1.4 Replace the value of the tag Name of the resource aws_instance with the following code
+```
+"${var.instance_name}-${local.env}"
+```
 1.5 Run the following command
 ```
 terraform apply -var-file="dev.tfvars"
