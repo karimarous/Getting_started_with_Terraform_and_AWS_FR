@@ -34,7 +34,7 @@ variable "instance_name" {
 
 # 2. Update your code with the variables
 
-2.1 Copy the following code into main.tf
+2.1 Replace the code that exist in main.tf with the following code
 
 ```
 resource "aws_security_group" "security_group" {
@@ -57,7 +57,7 @@ resource "aws_instance" "instance" {
 ```
 terraform apply
 ```
-Type "yes"
+1.4 Type "yes"
 
 
 

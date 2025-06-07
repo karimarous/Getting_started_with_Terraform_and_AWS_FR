@@ -10,7 +10,7 @@ terraform apply
 1.4 Go to AWS EC2 console and verify the name of the instance
 
 # 2. Modify the resource in the terraform configuration file
-2.1 Replace the Name value of the resource aws_instance in main.tf with "karim-instance1"
+2.1 Replace the value of the tag Name of the resource aws_instance in main.tf with "karim-instance1"
 
 Note: Replace "karim" with "your_name"
 
@@ -21,7 +21,7 @@ terrform apply
 2.4 Type "yes"
 
 # 3. Fix the file main.tf
-3.1 Replace the Name value of the resource aws_instance in main.tf with "karim-instance"
+3.1 Replace the value of the tag Name of the resource aws_instance in main.tf with "karim-instance"
 
 Note: Replace "karim" with "your_name"
 
