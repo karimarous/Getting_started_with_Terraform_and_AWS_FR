@@ -22,4 +22,4 @@ terraform apply -var-file="dev.tfvars"
 ```
 terraform destroy -var-file="dev.tfvars"
 ```
-1.3 Type "yes"
+1.4 Type "yes"
