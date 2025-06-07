@@ -60,6 +60,8 @@ instance_name = "karim-ec2"
 ```
 Replace "karim" with "your_name"
 
+1.3 Delete outputs.tf
+
 1.4 Run th following command
 ```
 terraform apply -var-file="dev.tfvars"
