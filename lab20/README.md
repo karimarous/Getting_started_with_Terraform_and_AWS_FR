@@ -230,7 +230,7 @@ terraform init
 ```
 terraform apply -auto-approve
 ```
-1.12 Run the following commands
+1.12 Run the following command to destroy the resources
 ```
 terraform destroy -auto-approve
 ```
