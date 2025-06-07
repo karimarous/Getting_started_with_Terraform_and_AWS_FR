@@ -59,7 +59,7 @@ public_subnets = {
 1.4 Replace the code that exist in outputs.tf with the following code
 ```
 output "vpc_id" {
-  value = aws_vpc.main.id
+  value = aws_vpc.vpc.id
 }
 
 output "public_subnet_ids" {
