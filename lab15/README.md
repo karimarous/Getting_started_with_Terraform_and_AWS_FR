@@ -4,7 +4,7 @@
 ```
 resource "aws_instance" "instance" {
   count = 2
-  ami           = var.ami
+  ami   = data.aws_ami.ubuntu.id
   instance_type = local.env == "dev" ? var.instance_type : "t3.small"
   tags = {
     Name = "${var.instance_name}-${local.env}-${count.index + 1}"
@@ -16,3 +16,10 @@ resource "aws_instance" "instance" {
 ```
 terraform apply -var-file="dev.tfvars"
 ```
+1.3 Type "yes"
+
+1.2 Run th following command to destroy the resources
+```
+terraform apply -var-file="dev.tfvars"
+```
+1.3 Type "yes"
