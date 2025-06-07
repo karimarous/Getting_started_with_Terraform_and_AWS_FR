@@ -20,6 +20,6 @@ terraform apply -var-file="dev.tfvars"
 
 1.2 Run th following command to destroy the resources
 ```
-terraform apply -var-file="dev.tfvars"
+terraform destroy -var-file="dev.tfvars"
 ```
 1.3 Type "yes"
