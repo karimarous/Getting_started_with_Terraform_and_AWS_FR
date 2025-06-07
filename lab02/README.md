@@ -12,16 +12,16 @@ resource "aws_instance" "instance" {
    }
 }
 ```
-1.3 Replace "karim" with your name
+Note: Replace "karim" with your name
 
-1.4 Run the following commands
+1.3 Run the following commands
 
-1.4.1 Run the following command to see the resources that will be created
+1.3.1 Run the following command to see the resources that will be created
 ```
 terraform plan
 ```
 
-1.4.2 Run the following command to provision the resources
+1.3.2 Run the following command to provision the resources
 
 ```
 terraform apply
@@ -42,11 +42,11 @@ resource "aws_security_group" "security_group" {
 }
 ```
 
-2.2 Replace "karim" with "your_name"
+Note: Replace "karim" with "your_name"
 
-2.3 Run the following commands
+2.2 Run the following commands
 ```
 terraform apply
 ```
 
-2.4 Type "yes"
+2.3 Type "yes"
