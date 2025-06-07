@@ -23,7 +23,7 @@ terrform apply
 # 3. Fix the file main.tf
 3.1 Replace the Name value of the resource aws_instance in main.tf with "karim-instance"
 
-Note: Replace "karim" with your name
+Note: Replace "karim" with "your_name"
 
 3.2 Run the following command
 ```
