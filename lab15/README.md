@@ -12,13 +12,13 @@ resource "aws_instance" "instance" {
 }
 ```
 
-1.2 Run th following command
+1.2 Run the following command
 ```
 terraform apply -var-file="dev.tfvars"
 ```
 1.3 Type "yes"
 
-1.2 Run th following command to destroy the resources
+1.2 Run the following command to destroy the resources
 ```
 terraform destroy -var-file="dev.tfvars"
 ```

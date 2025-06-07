@@ -11,7 +11,7 @@ resource "aws_vpc" "vpc" {
   }
 }
 
-resource "aws_subnet" "subnet" {
+resource "aws_subnet" "public" {
   for_each   = var.public_subnets
   vpc_id     = aws_vpc.vpc.id
   cidr_block = each.value.cidr
@@ -67,13 +67,13 @@ output "public_subnet_ids" {
 }
 ```
 
-1.5 Run th following command
+1.5 Run the following command
 ```
 terraform apply -var-file="dev.tfvars"
 ```
 1.6 Type "yes"
 
-1.7 Run th following command to destroy the resources
+1.7 Run the following command to destroy the resources
 ```
 terraform destroy -var-file="dev.tfvars"
 ```
