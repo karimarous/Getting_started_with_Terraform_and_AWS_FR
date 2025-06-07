@@ -13,8 +13,9 @@ locals {
 
 1.4 Go to main.tf and replace any "var.env" with "local.env"
 
-Run the following command
+1.5 Run the following command
 ```
 terraform apply -var-file="dev.tfvars"
 ```
+1.6 Type "yes"
 
