@@ -38,7 +38,7 @@ resource "aws_subnet" "public" {
 terraform validate
 ```
 
-2.3 Go to main.tf and replace the block resource aws_instance with the following code
+2.3 Go to main.tf and replace the block resource aws_subnet with the following code
 ```
 resource "aws_subnet" "public" {
   for_each                = var.public_subnets
