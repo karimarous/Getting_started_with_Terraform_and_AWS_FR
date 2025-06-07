@@ -1,6 +1,6 @@
 # 1. Use ami data source and provision an ec2 instance
 
-1.1 Go to main.tf and add the following code
+1.1 Overwrite to code that exist in main.tf with the following code
 ```
 data "aws_ami" "ubuntu" {
   most_recent = true
