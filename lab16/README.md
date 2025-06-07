@@ -1,6 +1,6 @@
 # 1. Provision an AWS VPC and 2 public subnets with for_each
 
-1.1 Go to main.tf and override all the code with the following code
+1.1 Replace the code that exist in main.tf with the following code
 ```
 resource "aws_vpc" "vpc" {
   cidr_block           = var.vpc_cidr
