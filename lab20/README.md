@@ -220,17 +220,17 @@ ami_virtualization_type = "hvm"
 instance_type = "t3.micro"
 instance_name = "karim-ec2"
 ```
+1.9 Delete outputs.tf
 
-1.9 Run the following command initalize the initialize the module
+1.10 Run the following command initalize the initialize the module
 ```
 terraform init 
 ```
-1.9 Run the following command to provision the resources
+1.11 Run the following command to provision the resources
 ```
 terraform apply -auto-approve
 ```
-
-1.10 Run the following commands
+1.12 Run the following commands
 ```
 terraform destroy -auto-approve
 ```
