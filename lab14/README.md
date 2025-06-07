@@ -4,23 +4,27 @@
 ```
 resource "aws_instance" "instance" {
   count = 2
-  ami           = var.ami
+  ami   = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
   tags = {
     Name = "${var.instance_name}-${local.env}-${count.index + 1}"
   }
 }
 ```
-
-1.2 Go to outputs.tf and replace the block output instance_id with the following code
+1.2 Create outputs.tf file and copy the following code
 ```
 output "instance_id" {
   value = aws_instance.instance.*.id
 }
 ```
-
-1.2 Run th following command
+1.3 Run the following command
 ```
 terraform apply -var-file="dev.tfvars"
 ```
-Type "yes"
+1.4 Type "yes"
+
+1.5 Run the following command to destroy the resources
+```
+terraform apply -var-file="dev.tfvars"
+```
+1.6 Type "yes"
