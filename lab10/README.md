@@ -181,8 +181,8 @@ terraform apply -var-file="dev.tfvars"
 
 You will find a "Welcome to nginx!" page
 
-1.9 Run the following command to delete the resources
+1.10 Run the following command to delete the resources
 ```
 terraform destroy -var-file="dev.tfvars"
 ```
-Type "yes"
+1.11 Type "yes"
