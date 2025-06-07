@@ -18,7 +18,8 @@ env = var.env
 env = var.env
 ```
 # 3. Pass the value of the variable using cli
-Run the following command
+3.1 Run the following command
 ```
 terraform apply -var 'env=dev'
 ```
+3.2 Type "yes"
