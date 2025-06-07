@@ -3,7 +3,7 @@
 
 1.2. Run the following command
 ```
-terrform apply
+terraform apply
 ```
 1.3 Go to AWS EC2 console and verify the name of the instance
 
@@ -11,7 +11,7 @@ terrform apply
 2.1. Replace the EC2 instance in main.tf with the following code
 ```
 resource "aws_instance" "instance" {
-   ami           = "ami-id"
+   ami           = "ami-0ff71843f814379b3"
    instance_type = "t3.micro"
    tags = {
    Name = "karim-instance1"
