@@ -4,7 +4,7 @@
 
 1.2 Download "karim.pem" key pair and put in the root directory of the project
 
-1.3 Go to main.tf and override it with the following code
+1.3 Replace the code that exist in main.tf with the following code
 ```
 data "aws_ami" "ubuntu" {
   most_recent = true
@@ -44,7 +44,7 @@ resource "aws_security_group" "ssh" {
     }
   }
   tags = {
-    Name = "${var.sg_name}-${local.env}"
+    Name = var.sg_name
   }
 }
 
@@ -52,7 +52,7 @@ resource "aws_instance" "instance" {
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = var.instance_type
   security_groups        = [aws_security_group.ssh.name]
-  key_name               = var.key_name # Replace with your key pair name
+  key_name               = var.key_name 
 
   provisioner "remote-exec" {
     inline = [
@@ -71,14 +71,12 @@ resource "aws_instance" "instance" {
   }
 
   tags = {
-    Name = "${var.instance_name}-${local.env}"
+    Name = var.instance_name
   }
 }
 ```
 
-1.4 Replace "karim" with "your_name"
-
-1.5 Go to variables.tf and override it with the following code
+1.4 Go to variables.tf and override it with the following code
 ```
 variable "sg_name" {
   type    = string
@@ -133,7 +131,7 @@ variable "private_key_path" {
 }
 ```
 
-1.6 Go to dev.tfvars and override it with the following code
+1.5 Go to dev.tfvars and override it with the following code
 ```
 sg_name = "karim-sg"
 sg_description = "Security group with dynamic rules"
@@ -169,20 +167,20 @@ ami_owner = "099720109477" # Canonical
 ami_name = "ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"
 ami_virtualization_type = "hvm"
 instance_type = "t3.micro"
-instance_name = "karim-ec2"
+instance_name = "karim-instance"
 key_name      = "karim"
 private_key_path = "./karim.pem" # Path to your private key
 ```
 
-1.7 Delete outputs.tf 
+1.6 Delete outputs.tf 
 
-1.8 Run the following command
+1.7 Run the following command
 ```
 terraform apply -var-file="dev.tfvars"
 ```
 Type "yes"
 
-1.9 Delete resources
+1.8 Delete resources
 Run the following command
 ```
 terraform destroy -var-file="dev.tfvars"
