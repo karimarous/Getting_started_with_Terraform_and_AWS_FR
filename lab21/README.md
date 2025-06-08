@@ -34,12 +34,12 @@ cd test_ci
 ```
 code .
 ``` 
+# 2 Add code and run pipeline
+2.1 Create a folder named .github
 
-1.13 Create a folder named .github
+2.2 Create a folder inside .github named workflows 
 
-1.14 Create a folder inside .github named workflows 
-
-1.14 Create file named test.yml under workflows folder and copy the following code
+2.3 Create file named test.yml under workflows folder and copy the following code
 ```
 name: Terraform Security Scan with tfsec
 
@@ -61,13 +61,14 @@ jobs:
 ```
 
 
-1.17 In the root directory, create a file named main.tf and copy the following code
+2.4 In the root directory, create a file named main.tf and copy the following code
 ```
 resource "aws_security_group" "ssh" {
   name_prefix = "test security"
   description = "test security"
 
-  egress {
+  ingress {
+    description = "allow inboud traffic"
     from_port       = 22
     to_port         = 22
     protocol        = "tcp"
@@ -80,47 +81,50 @@ resource "aws_security_group" "ssh" {
 }
 
 ```
-1.4 Push the code to the created Github repo use the following commands
+2.5 Push the code to the created Github repo use the following commands
 
 ```
 git add .
 ```
 ```
-git commit -m "test securityin ci"
+git commit -m "test security in ci"
 ```
 ```
 git push origin main
 ```
+2.6 Go to the created repo and click on Actions
 
+2.7 In the left panel click on Terraform Security Scan with tfsec
 
+2.8 Click on Run workflow. Ensure your using the main branch then click on Run workflow
 
+2.9 Reload the page
 
+2.10 Open the workflow that has been started and take a look at Run tfsec step
 
-1.8 Go to the created repo and click on Actions
+# 3. Fix the issue
 
+3.1 Go back to VSCode and open main.tf
 
-1.9 Delete outputs.tf that exist in the root directory
+3.2 Replace the value of cidr_blocks "0.0.0.0/0" by this value "10.0.0.0/24"
 
-1.10 Run the following command initalize the initialize the module
+3.3 Push the code to the created Github repo use the following commands
+
 ```
-terraform init 
+git add .
 ```
-1.11 Run the following command to provision the resources
 ```
-terraform apply -auto-approve
+git commit -m "test security in ci"
 ```
-1.12 Run the following command to destroy the resources
 ```
-terraform destroy -auto-approve
+git push origin main
 ```
+3.4 Click on Actions
 
+3.5 In the left panel click on Terraform Security Scan with tfsec
 
-# 2. Publish the code to the repository
-1.1 Create a folder named modules
+3.6 Click on Run workflow. Ensure your using the main branch then click on Run workflow
 
-1.2 Under the modules folder create another folder named ec2
+3.7 Reload the page
 
-# 3. Run workflow
-1.1 Create a folder named modules
-
-1.2 Under the modules folder create another folder named ec2
+3.8 Open the workflow that has been started and take a look at Run tfsec step
