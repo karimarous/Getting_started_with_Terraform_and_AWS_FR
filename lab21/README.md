@@ -127,3 +127,5 @@ git push origin main
 3.7 Reload the page
 
 3.8 Open the workflow that has been started and take a look at Run tfsec step
+
+3.9 Delete the created repo if you want to do a cleanup
