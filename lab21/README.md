@@ -109,7 +109,6 @@ git push origin main
 3.2 Replace the value of cidr_blocks "0.0.0.0/0" by this value "10.0.0.0/24"
 
 3.3 Push the code to the created Github repo use the following commands
-
 ```
 git add .
 ```
