@@ -1,0 +1,16 @@
+name: Terraform Security Scan with tfsec
+
+on:
+  workflow_dispatch:
+
+jobs:
+  tfsec:
+    name: Run tfsec
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run tfsec
+        uses: aquasecurity/tfsec-action@v1.0.0
