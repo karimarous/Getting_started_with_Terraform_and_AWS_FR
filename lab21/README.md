@@ -80,7 +80,20 @@ resource "aws_security_group" "ssh" {
 }
 
 ```
-1.4 Push the code to the created Github repo
+1.4 Push the code to the created Github repo use the following commands
+
+```
+git add .
+```
+```
+git commit -m "test securityin ci"
+```
+```
+git push origin main
+```
+
+
+
 
 
 1.8 Go to the created repo and click on Actions
