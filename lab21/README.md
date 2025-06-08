@@ -61,7 +61,7 @@ jobs:
 ```
 
 
-1.17 Create a file named main.tf and copy the following code
+1.17 In the root directory, create a file named main.tf and copy the following code
 ```
 resource "aws_security_group" "ssh" {
   name_prefix = "test security"
@@ -75,175 +75,17 @@ resource "aws_security_group" "ssh" {
   }
 
   tags = {
-    Name = test_security"
+    Name = "test_security"
   }
 }
 
 ```
-
 1.4 Push the code to the created Github repo
-1.4.1 Run the following
-```
-variable "sg_name" {
-  type    = string
-}
 
-variable "sg_description" {
-  type    = string
-}
 
-variable "sg_ingress_rules" {
-  type = list(object({
-           from_port   = number
-           to_port     = number
-           protocol    = string
-           cidr_blocks = list(string)
-         }))
-}
+1.8 Go to the created repo and click on Actions
 
-variable "sg_egress_rules" {
-  type = list(object({
-           from_port   = number
-           to_port     = number
-           protocol    = string
-           cidr_blocks = list(string)
-         }))
-}
 
-variable "ami_owner" {
-  type    = string
-}
-
-variable "ami_name" {
-  type    = string
-}
-
-variable "ami_virtualization_type" {
-  type    = string
-}
-variable "instance_type" {
-  type    = string
-}
-
-variable "instance_name" {
-  type    = string
-}
-
-variable "env" {
-  type    = string
-}
-```
-
-1.5 Create a file named outputs.tf under ec2 folder and copy the following code
-```
-output "instance_id" {
-  description = "The ID of the EC2 instance"
-  value       = aws_instance.instance.id
-}
-```
-1.6 In the root project, go to main.tf and replace the existing content with the following code
-```
-module "ec2" {
-  source = "./modules/ec2"
-  env = local.env
-  sg_name = var.sg_name
-  sg_description = var.sg_description
-  sg_ingress_rules = var.sg_ingress_rules
-  sg_egress_rules = var.sg_egress_rules
-  ami_owner = var.ami_owner
-  ami_name = var.ami_name
-  ami_virtualization_type = var.ami_virtualization_type
-  instance_type = var.instance_type
-  instance_name = var.instance_name
-}
-```
-
-1.7 In the root project, go to variables.tf and replace the existing content with the following code
-```
-variable "sg_name" {
-  type    = string
-}
-
-variable "sg_description" {
-  type    = string
-}
-
-variable "sg_ingress_rules" {
-  type = list(object({
-           from_port   = number
-           to_port     = number
-           protocol    = string
-           cidr_blocks = list(string)
-         }))
-}
-
-variable "sg_egress_rules" {
-  type = list(object({
-           from_port   = number
-           to_port     = number
-           protocol    = string
-           cidr_blocks = list(string)
-         }))
-}
-
-variable "ami_owner" {
-  type    = string
-}
-
-variable "ami_name" {
-  type    = string
-}
-
-variable "ami_virtualization_type" {
-  type    = string
-}
-variable "instance_type" {
-  type    = string
-}
-
-variable "instance_name" {
-  type    = string
-}
-```
-
-1.8 In the root project rename the file "dev.tfvars" to "terraform.tfvars" and replace the existing content with the following code
-```
-sg_name = "karim-sg"
-sg_description = "Security group with dynamic rules"
-sg_ingress_rules = [
-    {
-      from_port   = 22
-      to_port     = 22
-      protocol    = "tcp"
-      cidr_blocks = ["0.0.0.0/0"]
-    },
-    {
-      from_port   = 80
-      to_port     = 80
-      protocol    = "tcp"
-      cidr_blocks = ["0.0.0.0/0"]
-    },
-    {
-      from_port   = 443
-      to_port     = 443
-      protocol    = "tcp"
-      cidr_blocks = ["0.0.0.0/0"]
-    }
-  ]
-sg_egress_rules= [
-    {
-      from_port   = 0
-      to_port     = 0
-      protocol    = "-1"
-      cidr_blocks = ["0.0.0.0/0"]
-    }
-]
-ami_owner = "099720109477" # Canonical  
-ami_name = "ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"
-ami_virtualization_type = "hvm"
-instance_type = "t3.micro"
-instance_name = "karim-ec2"
-```
 1.9 Delete outputs.tf that exist in the root directory
 
 1.10 Run the following command initalize the initialize the module
