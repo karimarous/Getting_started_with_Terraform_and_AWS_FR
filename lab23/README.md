@@ -100,7 +100,6 @@ terraform apply
 
 4.2.5 Run tho following command
 ```
-# list of created resources
 terraform state list
 ```
 4.2.6 Remove the entire moved block
@@ -116,6 +115,5 @@ terraform refresh
 
 6.2 Run the following command   
 ```
-# Rename terraform resource
 terraform state mv aws_security_group.security_group2 aws_security_group.security_group
 ```
