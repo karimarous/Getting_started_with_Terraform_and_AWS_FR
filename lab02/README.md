@@ -30,6 +30,7 @@ terraform apply
 1.3.3 Type "yes"
 
 # 2. Provision a Security Group
+
 2.1 Update **main.tf** with the following code
 
 ```
