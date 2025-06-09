@@ -17,3 +17,7 @@ locals {
 ```
 terraform apply -var-file="dev.tfvars"
 ```
+1.6 Run the following command to destroy all the resources
+```
+terraform destroy -var-file="dev.tfvars"
+```
