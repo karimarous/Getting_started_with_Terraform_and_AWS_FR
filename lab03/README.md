@@ -16,7 +16,7 @@ Note: Replace **karim** with **your_name**
 
 2.3 Run the following command
 ```
-terrform apply
+terraform apply
 ```
 2.4 Type **yes**
 
