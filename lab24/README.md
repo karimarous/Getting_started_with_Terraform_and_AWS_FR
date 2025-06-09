@@ -1,5 +1,5 @@
 # 1. Import resource created outside Terraform 
-1.1 Create an EC2 instance in the default VPC without a key pair in AWS console
+1.1 Create an EC2 instance named **instance-import** in the default VPC without a key pair in AWS console
 
 1.2 Open **main.tf** and add the following code
 ```
