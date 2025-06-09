@@ -37,6 +37,10 @@ resource "aws_instance" "instance" {
 ```
 1.3 Run the following command
 ```
+terraform init
+```
+1.4 Run the following command
+```
 terraform apply -auto-approve
 ```
 
