@@ -27,7 +27,7 @@ terraform plan
 terraform apply
 ```
 
-1.3.3 Type "yes"
+1.3.3 Type **yes**
 
 # 2. Provision a Security Group
 
