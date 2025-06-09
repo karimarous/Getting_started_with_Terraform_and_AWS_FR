@@ -1,5 +1,23 @@
 # 1. Provison some infrastructure
-1.1 Create a file named **main.tf** and copy the following code
+1.1 Create a file named **provider.tf** and copy the following code
+```
+
+terraform {
+  required_version = ">= 1.12.0"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "5.98.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = "eu-west-3"
+}
+```
+
+1.2 Create a file named **main.tf** and copy the following code
 ```
 resource "aws_security_group" "security_group" {
   name        = "karim-security-group"
@@ -17,7 +35,7 @@ resource "aws_instance" "instance" {
   }
 }
 ```
-1.2 Run the following command
+1.3 Run the following command
 ```
 terraform apply -auto-approve
 ```
