@@ -31,7 +31,7 @@ terraform apply
 
 # 2. Provision a Security Group
 
-2.1 Update **main.tf** with the following code
+2.1 Go to **main.tf** and add the following code
 
 ```
 resource "aws_security_group" "security_group" {
