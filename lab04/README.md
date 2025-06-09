@@ -21,7 +21,7 @@ output "instance_id" {
 ```
 terraform apply
 ```
-1.4 Type "yes"
+1.4 Type **yes**
 
 1.5 Run this command
 

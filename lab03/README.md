@@ -5,7 +5,7 @@
 ```
 terraform apply
 ```
-1.3 Type "yes"
+1.3 Type **yes**
 
 1.4 Go to AWS EC2 console and verify the name of the instance
 
@@ -18,7 +18,7 @@ Note: Replace **karim** with **your_name**
 ```
 terrform apply
 ```
-2.4 Type "yes"
+2.4 Type **yes**
 
 # 3. Fix the file main.tf
 3.1 Replace the value of the tag Name of the resource aws_instance in **main.tf** file with **karim-instance**
@@ -29,4 +29,4 @@ Note: Replace **karim** with **your_name**
 ```
 terrform apply
 ```
-2.3 Type "yes"
+2.3 Type **yes**

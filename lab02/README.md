@@ -50,4 +50,4 @@ Note: Replace **karim** with **your_name**
 terraform apply
 ```
 
-2.3 Type "yes"
+2.3 Type **yes**

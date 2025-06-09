@@ -174,7 +174,7 @@ private_key_path = "./karim.pem" # Path to your private key
 ```
 terraform apply -var-file="dev.tfvars"
 ```
-1.8 Type "yes"
+1.8 Type **yes**
 
 1.9 Wait 10 min then go to AWS EC2 console and copy the public IP of the created instance and paste it into a new Chrome tab
 
@@ -184,4 +184,4 @@ You will find a "Welcome to nginx!" page
 ```
 terraform destroy -var-file="dev.tfvars"
 ```
-1.11 Type "yes"
+1.11 Type **yes**

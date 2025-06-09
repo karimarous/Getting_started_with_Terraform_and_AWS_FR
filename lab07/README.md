@@ -8,7 +8,7 @@ env = "dev"
 ```
 
 1.3 Run the following command
-
 ```
 terraform apply -var-file="dev.tfvars"
 ```
+1.4 Type **yes**

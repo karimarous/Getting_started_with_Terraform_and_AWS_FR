@@ -66,4 +66,4 @@ Replace "karim" with "your_name"
 ```
 terraform apply -var-file="dev.tfvars"
 ```
-Type "yes"
+Type **yes**

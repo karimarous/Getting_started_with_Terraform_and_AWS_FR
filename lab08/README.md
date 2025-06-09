@@ -17,5 +17,5 @@ locals {
 ```
 terraform apply -var-file="dev.tfvars"
 ```
-1.6 Type "yes"
+1.6 Type **yes**
 

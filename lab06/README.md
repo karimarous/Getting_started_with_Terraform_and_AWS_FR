@@ -22,4 +22,4 @@ env = var.env
 ```
 terraform apply -var 'env=dev'
 ```
-3.2 Type "yes"
+3.2 Type **yes**
