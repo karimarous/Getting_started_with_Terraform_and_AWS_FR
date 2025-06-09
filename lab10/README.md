@@ -1,10 +1,10 @@
 # 1. Deploy nginx server
 
-1.1 Go to AWS and create a key pair with your name. In my case, I have created a key pair called "karim"
+1.1 Go to AWS and create a key pair with **your_name**. In my case, I have created a key pair called **karim**
 
-1.2 Download "karim.pem" key pair and put in the root directory of the project
+1.2 When the key pair is downloaded copy it and put it in the root directory of the project
 
-1.3 Replace the code that exist in main.tf with the following code
+1.3 Replace the code that exist in **main.tf** with the following code
 ```
 data "aws_ami" "ubuntu" {
   most_recent = true
@@ -76,7 +76,7 @@ resource "aws_instance" "instance" {
 }
 ```
 
-1.4 Replace the code that exist in variables.tf with the following code
+1.4 Replace the code that exist in **variables.tf** with the following code
 ```
 variable "sg_name" {
   type    = string
@@ -130,8 +130,7 @@ variable "private_key_path" {
   type    = string 
 }
 ```
-
-1.5 Replace the code that exist in dev.tfvars.tf with the following code
+1.5 Replace the code that exist in **dev.tfvars.tf** with the following code
 ```
 sg_name = "karim-sg"
 sg_description = "Security group with dynamic rules"

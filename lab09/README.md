@@ -1,6 +1,6 @@
 # 1. Use ami data source and provision an ec2 instance
 
-1.1 Replace the code that exist in main.tf with the following code
+1.1 Replace the code that exist in **main.tf** with the following code
 ```
 data "aws_ami" "ubuntu" {
   most_recent = true
@@ -26,7 +26,7 @@ resource "aws_instance" "instance" {
 }
 ```
 
-1.2 Replace the code that exist in variables.tf with the following code
+1.2 Replace the code that exist in **variables.tf** with the following code
 ```
 variable "ami_owner" {
   type    = string
@@ -50,7 +50,7 @@ variable "instance_name" {
 ```
 
 
-1.3 Go to dev.tfvars and add the following code
+1.3 Go to **dev.tfvars** and add the following code
 ```
 ami_owner = "099720109477" # Canonical  
 ami_name = "ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"
@@ -60,7 +60,7 @@ instance_name = "karim-instance"
 ```
 Replace "karim" with "your_name"
 
-1.3 Delete outputs.tf
+1.3 Delete **outputs.tf**
 
 1.4 Run th following command
 ```

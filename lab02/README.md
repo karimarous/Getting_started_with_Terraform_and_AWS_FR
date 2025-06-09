@@ -30,7 +30,7 @@ terraform apply
 1.3.3 Type "yes"
 
 # 2. Provision a Security Group
-2.1 Update **main.tf with the following code
+2.1 Update **main.tf** with the following code
 
 ```
 resource "aws_security_group" "security_group" {
@@ -42,7 +42,7 @@ resource "aws_security_group" "security_group" {
 }
 ```
 
-Note: Replace **karim with **your_name**
+Note: Replace **karim** with **your_name**
 
 2.2 Run the following command
 ```
