@@ -12,7 +12,7 @@ resource "aws_instance" "instance" {
    }
 }
 ```
-Note: Replace **karim with **your_name**
+Note: Replace **karim** with **your_name**
 
 1.3 Run the following commands
 
