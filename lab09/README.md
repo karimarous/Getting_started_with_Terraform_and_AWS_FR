@@ -67,3 +67,8 @@ Replace "karim" with "your_name"
 terraform apply -var-file="dev.tfvars"
 ```
 1.5 Type **yes**
+
+1.6 Run the following command to destroy all the resources
+```
+terraform destroy -var-file="dev.tfvars"
+```
