@@ -10,5 +10,5 @@ public_subnets = {
     name = "subnet-2"
     cidr = "10.0.1.0/24"
     az   = "eu-west-3b"
-  }
+  } 
 }

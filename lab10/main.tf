@@ -36,14 +36,14 @@ resource "aws_security_group" "ssh" {
     }
   }
   tags = {
-    Name = "${var.sg_name}-${local.env}"
+    Name = var.sg_name
   }
 }
 
 resource "aws_instance" "instance" {
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = var.instance_type
-  security_groups = [aws_security_group.ssh.name]
+  security_groups        = [aws_security_group.ssh.name]
   key_name               = var.key_name 
 
   provisioner "remote-exec" {
@@ -63,6 +63,6 @@ resource "aws_instance" "instance" {
   }
 
   tags = {
-    Name = "${var.instance_name}-${local.env}"
+    Name = var.instance_name
   }
 }

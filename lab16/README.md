@@ -26,11 +26,11 @@ resource "aws_subnet" "public" {
 1.2 Replace the code that exist in variables.tf with the following code
 ```
 variable "vpc_name" {
-    type    = string
+  type = string
   }
 
 variable "vpc_cidr" {
-  type    = string
+  type = string
 }
 
 variable "public_subnets" {

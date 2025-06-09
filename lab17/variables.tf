@@ -11,11 +11,11 @@ variable "public_subnets" {
 }
 
 variable "sg_name" {
-  type    = string
+  type = string
 }
 
 variable "sg_description" {
-  type    = string
+  type = string
 }
 
 variable "sg_ingress_rules" {

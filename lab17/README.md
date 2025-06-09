@@ -34,11 +34,11 @@ resource "aws_security_group" "security_group" {
 1.2 Go to variables.tf and add the following code
 ```
 variable "sg_name" {
-  type    = string
+  type = string
 }
 
 variable "sg_description" {
-  type    = string
+  type = string
 }
 
 variable "sg_ingress_rules" {
@@ -51,7 +51,7 @@ variable "sg_ingress_rules" {
 }
 
 variable "sg_egress_rules" {
-type = list(object({
+  type = list(object({
           from_port   = number
           to_port     = number
           protocol    = string
