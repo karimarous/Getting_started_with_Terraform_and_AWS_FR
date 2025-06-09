@@ -32,10 +32,10 @@ variable "instance_name" {
 ```
 terraform apply -var-file="dev.tfvars"
 ```
-2.3 Type "yes"
+2.3 Type **yes**
 
 2.4 Run the following command
 ```
 terraform destroy -var-file="dev.tfvars"
 ```
-2.5 Type "yes"
+2.5 Type **yes**
