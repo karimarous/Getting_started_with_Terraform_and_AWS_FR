@@ -6,9 +6,9 @@
 
 1.3 Click on New
 
-1.4 In Create a new repository page put test_ci as Repository name, check Add a README file and finally click on Create repository
+1.4 In Create a new repository page put project2 as Repository name, check Add a README file and finally click on Create repository
 
-1.5 Go to your PC and create a folder named test in you home desktop
+1.5 Go to your home desktop, open the folder named formation_terraform
 
 1.6 Open this folder then click on the right button of your mouse and choose "Ouvrir dans le terminal"
 
@@ -27,9 +27,8 @@ git clone copied_url
 
 1.11 Access the cloned repo
 ```
-cd test_ci
+cd project2
 ``` 
-
 1.12 Type the following command and run it
 ```
 code .
@@ -59,8 +58,6 @@ jobs:
         uses: aquasecurity/tfsec-action@v1.0.0
 
 ```
-
-
 2.4 In the root directory, create a file named main.tf and copy the following code
 ```
 resource "aws_security_group" "ssh" {
@@ -79,10 +76,8 @@ resource "aws_security_group" "ssh" {
     Name = "test_security"
   }
 }
-
 ```
 2.5 Push the code to the created Github repo use the following commands
-
 ```
 git add .
 ```
