@@ -6,6 +6,8 @@ locals {
   env = terraform.workspace
 }
 ```
+1.2 Rename the file **dev.tfvars** to **terraform.tfvars**
+
 1.2 Run the following command to create a workspace **dev**
 ```
 terraform workspace new dev

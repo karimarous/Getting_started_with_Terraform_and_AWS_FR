@@ -182,7 +182,7 @@ variable "instance_name" {
 }
 ```
 
-1.8 In the root project rename the file **dev.tfvars** to **terraform.tfvars** and replace the existing content with the following code
+1.8 In the root project, replace the existing content of **terraform.tfvars** with the following code
 ```
 sg_name = "karim-sg"
 sg_description = "Security group with dynamic rules"
