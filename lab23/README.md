@@ -1,5 +1,5 @@
 # 1. Provison some infrastructure
-1.1 Create a file named main.tf and copy the following code
+1.1 Create a file named **main.tf** and copy the following code
 ```
 resource "aws_security_group" "security_group" {
   name        = "karim-security-group"
@@ -25,7 +25,7 @@ terraform apply -auto-approve
 # 2. List content state file 
 2.1 Using state file in the remote backend
 
-2.1.1 Go to S3 bucket used in the remote backend and download the file that exist under karim folder
+2.1.1 Go to **AWS S3 bucket console** used in the remote backend and download the file that exist under **karim** folder
 
 2.1.2 Open the file downloaded
 
@@ -47,7 +47,7 @@ terraform state show aws_security_group.security_group
 # 4. Rename terraform resource
 4.1 Using Terraform CLI 
 
-4.1.1 Go to main.tf and replace "security_group" with "security_group1"
+4.1.1 Go to **main.tf** and replace **security_group** with **security_group1**
 
 4.1.2 Run the following command   
 ```
@@ -60,9 +60,9 @@ terraform state list
 
 4.2 Using block moved and Terraform CLI (new approch)
 
-4.2.1 Go to main.tf and replace "security_group1" with "security_group2"
+4.2.1 Go to **main.tf** and replace **security_group1** with **security_group2**
 
-4.2.2 Go to main.tf and copy the following code
+4.2.2 Go to **main.tf** and copy the following code
 ```
 moved {
    from = aws_security_group.security_group1
@@ -90,7 +90,7 @@ terraform refresh
 ```
 
 # 6. Fix main.tf file
-6.1 Go to main.tf and replace "security_group2" with "security_group"
+6.1 Go to **main.tf** and replace **security_group2** with **security_group**
 
 6.2 Run the following command   
 ```
