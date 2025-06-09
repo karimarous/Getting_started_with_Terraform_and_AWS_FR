@@ -71,10 +71,10 @@ output "public_subnet_ids" {
 ```
 terraform apply -var-file="dev.tfvars"
 ```
-1.6 Type "yes"
+1.6 Type **yes**
 
 1.7 Run the following command to destroy the resources
 ```
 terraform destroy -var-file="dev.tfvars"
 ```
-1.8 Type "yes"
+1.8 Type **yes**

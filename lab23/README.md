@@ -74,7 +74,7 @@ moved {
 ```
 terraform apply
 ```
-4.2.4 Type "yes"
+4.2.4 Type **yes**
 
 4.2.5 Run tho following command
 ```
