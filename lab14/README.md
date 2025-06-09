@@ -1,6 +1,6 @@
 # 1. Use count and count.index 
 
-1.1 Go to main.tf and replace to block resource aws_instance with the following code
+1.1 Go to **main.tf** and replace to block resource **aws_instance** with the following code
 ```
 resource "aws_instance" "instance" {
   count = 2
@@ -11,7 +11,7 @@ resource "aws_instance" "instance" {
   }
 }
 ```
-1.2 Create outputs.tf file and copy the following code
+1.2 Create **outputs.tf** file and copy the following code
 ```
 output "instance_id" {
   value = aws_instance.instance.*.id

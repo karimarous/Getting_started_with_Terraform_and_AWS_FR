@@ -1,6 +1,6 @@
 # 1. Create a Security Group using Dynamic block
 
-1.1 Go to main.tf and add the following code
+1.1 Go to **main.tf** and add the following code
 ```
 resource "aws_security_group" "security_group" {
   name        = "${var.sg_name}-${local.env}"
@@ -31,7 +31,7 @@ resource "aws_security_group" "security_group" {
 }
 ```
 
-1.2 Go to variables.tf and add the following code
+1.2 Go to **variables.tf** and add the following code
 ```
 variable "sg_name" {
   type = string
@@ -60,7 +60,7 @@ variable "sg_egress_rules" {
 }
 ```
 
-1.3 Go to dev.tfvars and add the following code
+1.3 Go to **dev.tfvars** and add the following code
 ```
 sg_name = "karim-sg"
 sg_description = "Security group with dynamic rules"
@@ -94,13 +94,13 @@ sg_egress_rules= [
 ]
 ```
 
-Note: Replace "karim" with "your_name"
+Note: Replace **karim** with **your_name**
 
 1.4 Run th following command
 ```
 terraform apply -var-file="dev.tfvars"
 ```
-1.5 Type "yes"
+1.5 Type **yes**
 
 1.6 Run the following command to destroy the resources
 ```

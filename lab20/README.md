@@ -1,10 +1,10 @@
 # 1. Create a module for AWS instance and AWS Security Group
 
-1.1 Create a folder named modules
+1.1 Create a folder named **modules**
 
-1.2 Under the modules folder create another folder named ec2
+1.2 Under the **modules** folder create another folder named **ec2**
 
-1.3 Create a file named main.tf under ec2 folder and copy the following code
+1.3 Create a file named **main.tf** under **ec2** folder and copy the following code
 ```
 data "aws_ami" "ubuntu" {
   most_recent = true
@@ -58,7 +58,7 @@ resource "aws_instance" "instance" {
 }
 ```
 
-1.4 Create a file named variables.tf under ec2 folder and copy the following code
+1.4 Create a file named **variables.tf** under ec2 folder and copy the following code
 ```
 variable "sg_name" {
   type    = string
@@ -110,14 +110,14 @@ variable "env" {
 }
 ```
 
-1.5 Create a file named outputs.tf under ec2 folder and copy the following code
+1.5 Create a file named **outputs.tf** under ec2 folder and copy the following code
 ```
 output "instance_id" {
   description = "The ID of the EC2 instance"
   value       = aws_instance.instance.id
 }
 ```
-1.6 In the root project, go to main.tf and replace the existing content with the following code
+1.6 In the root project, go to **main.tf** and replace the existing content with the following code
 ```
 module "ec2" {
   source = "./modules/ec2"
@@ -134,7 +134,7 @@ module "ec2" {
 }
 ```
 
-1.7 In the root project, go to variables.tf and replace the existing content with the following code
+1.7 In the root project, go to **variables.tf** and replace the existing content with the following code
 ```
 variable "sg_name" {
   type    = string
@@ -182,7 +182,7 @@ variable "instance_name" {
 }
 ```
 
-1.8 In the root project rename the file "dev.tfvars" to "terraform.tfvars" and replace the existing content with the following code
+1.8 In the root project rename the file **dev.tfvars** to **terraform.tfvars** and replace the existing content with the following code
 ```
 sg_name = "karim-sg"
 sg_description = "Security group with dynamic rules"
@@ -220,9 +220,9 @@ ami_virtualization_type = "hvm"
 instance_type = "t3.micro"
 instance_name = "karim-ec2"
 ```
-1.9 Delete outputs.tf that exist in the root directory
+1.9 Delete **outputs.tf** that exist in the root directory
 
-1.10 Run the following command initalize the initialize the module
+1.10 Run the following command to install the module
 ```
 terraform init 
 ```

@@ -1,6 +1,6 @@
 # 1. Use condition in resource
 
-1.1 Go to main.tf and replace to block resource aws_instance with the following code
+1.1 Go to **main.tf** and replace to block resource **aws_instance** with the following code
 ```
 resource "aws_instance" "instance" {
   count = 2

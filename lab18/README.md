@@ -1,6 +1,6 @@
 # 1. Terraform format
 
-1.1 Open main.tf and replace the resource aws_vpc with the following code
+1.1 Open **main.tf** and replace the resource **aws_vpc** with the following code
 ```
 resource "aws_vpc" "vpc" {
   cidr_block           = var.vpc_cidr
@@ -17,7 +17,7 @@ resource "aws_vpc" "vpc" {
 terraform fmt
 ```
 # 2. Terraform validate
-2.1 Go to main.tf and replace the resource aws_subnet with the following code
+2.1 Go to **main.tf** and replace the resource **aws_subnet** with the following code
 ```
 resource "aws_subnet" "public" {
   for_each                = var.public_subnets

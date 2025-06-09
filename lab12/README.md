@@ -1,6 +1,6 @@
 # 1. Test variable condition max
 
-1.1 Replace the variable instance_name bloc with the following code
+1.1 Replace the variable **instance_name** bloc with the following code
 ```
 variable "instance_name" {
   type = string
@@ -17,7 +17,7 @@ terraform apply -var-file="dev.tfvars"
 ```
 
 # 2. Test variable condition min
-2.1 Replace the variable instance_name bloc with the following code
+2.1 Replace the variable **instance_name** bloc with the following code
 ```
 variable "instance_name" {
   type = string

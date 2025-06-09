@@ -1,6 +1,6 @@
 # 1. Provision an AWS VPC and 2 public subnets with for_each
 
-1.1 Replace the code that exist in main.tf with the following code
+1.1 Replace the code that exist in **main.tf** with the following code
 ```
 resource "aws_vpc" "vpc" {
   cidr_block           = var.vpc_cidr
@@ -23,7 +23,7 @@ resource "aws_subnet" "public" {
 }
 ```
 
-1.2 Replace the code that exist in variables.tf with the following code
+1.2 Replace the code that exist in **variables.tf** with the following code
 ```
 variable "vpc_name" {
   type = string
@@ -38,7 +38,7 @@ variable "public_subnets" {
 }
 ```
 
-1.3 Replace the code that exist in dev.tfvars with the following code
+1.3 Replace the code that exist in **dev.tfvars** with the following code
 ```
 vpc_name = "karim-vpc"
 vpc_cidr = "10.0.0.0/16"
@@ -56,7 +56,7 @@ public_subnets = {
 }
 ```
 
-1.4 Replace the code that exist in outputs.tf with the following code
+1.4 Replace the code that exist in **outputs.tf** with the following code
 ```
 output "vpc_id" {
   value = aws_vpc.vpc.id
