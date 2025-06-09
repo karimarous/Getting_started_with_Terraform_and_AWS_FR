@@ -38,7 +38,7 @@ import {
   id = "instance_id"
 }
 ```
-Note: Replace **instance_id** with the id of the running instance
+**Note**: Replace **instance_id** with the id of the running instance
 
 1.3.2.2 Run the following command
 ```
