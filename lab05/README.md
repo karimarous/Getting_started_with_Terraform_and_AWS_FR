@@ -57,4 +57,3 @@ resource "aws_instance" "instance" {
 ```
 terraform apply
 ```
-1.4 Type **yes**
