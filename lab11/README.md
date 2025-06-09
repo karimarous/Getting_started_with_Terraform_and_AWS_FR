@@ -1,4 +1,4 @@
-# 1. Deploy nginx server
+# 1. Configure expression
 
 1.1 Go to AWS and create a key pair with your name. In my case, I have created a key pair called "karim"
 
