@@ -1,8 +1,8 @@
 # 0. Create the project folder
 
-0.1 Go to your home desktop and create a folder named formation_terraform
+0.1 Go to your home desktop and create a folder named ***formation_terraform***
 
-0.2 Access this folder and create a folder named project1. We will use it for the rest of the project
+0.2 Access this folder and create a folder named ***project1***. We will use it for the rest of the project
 
 0.3 Open the folder project1 then click on the right button of your mouse and choose "Ouvrir dans le terminal"
 
