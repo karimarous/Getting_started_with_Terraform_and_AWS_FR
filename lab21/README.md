@@ -12,24 +12,26 @@
 
 1.6 Open this folder then click on the right button of your mouse and choose "Ouvrir dans le terminal"
 
-1.7 Go back to the created Github repo and click "Code"
+1.7 Go to the terminal and type **git clone** (don't type enter yet)
 
-1.8 Choose HTTPS and copy the url provided
+1.8 Go back to the created Github repo and click "Code"
 
-1.9 Go to the terminal and type **git clone** then paste the URL 
+1.9 Choose HTTPS and copy the url provided
 
-The command should looks like this
+1.10 Paste the url in the terminal
+
+The command should look like this
 ```
 git clone copied_url
 ```
 
-1.10 Just press **Enter** button 
+1.11 Just press **Enter** button 
 
-1.11 Access the cloned repo
+1.12 Access the cloned repo
 ```
 cd project2
 ``` 
-1.12 Type the following command and run it
+1.13 Type the following command and run it
 ```
 code .
 ``` 
