@@ -13,4 +13,3 @@ Enjoy :)
 ## Prerequesties
 - Ensure you have terraform >=v1.12.0 installed
 - Ensure you have installed AWS v2 and configured the access
-- Ensure you have VS Code with Terraform Hashicorp extension installed
