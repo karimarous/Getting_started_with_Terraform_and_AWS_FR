@@ -1,0 +1,7 @@
+sg_name,rule_type,protocol,port_range,dst_cidr,dst_sg
+web,ingress,tcp,80-80,0.0.0.0/0,
+web,ingress,tcp,443-443,0.0.0.0/0,
+app,ingress,tcp,22-22,,db
+app,egress,tcp,3306-3306,,db
+db,ingress,tcp,22-22,,app
+db,ingress,tcp,3306-3306,,app
