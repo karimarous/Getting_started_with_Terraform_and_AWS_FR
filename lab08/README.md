@@ -15,10 +15,10 @@ locals {
 
 1.5 Run the following command
 ```
-terraform apply -var-file="dev.tfvars"
+terraform apply
 ```
 1.6 Run the following command to destroy all the resources
 ```
-terraform destroy -var-file="dev.tfvars"
+terraform destroy
 ```
 1.7 Type **yes**
