@@ -1,6 +1,6 @@
 # 1. Configure expression
 
-1.1 Replace the **value** of the tag **Name** of the resource **aws_security_group.aws_security_group** with the following code
+1.1 Replace the **value** of the tag **Name** of the resource **aws_security_group** with the following code
 ```
 "${var.sg_name}-${local.env}"
 ```
